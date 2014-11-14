@@ -1,0 +1,34 @@
+{
+  "input": {
+    "type": "track",
+    "userId": "user-id",
+    "timestamp": "2014",
+    "anonymousId": "anonymous-id",
+    "event": "my-event",
+    "properties": {
+      "property": true,
+      "object": {},
+      "array": [1, 2]
+    },
+    "options": {
+      "traits": {
+        "trait": true
+      }
+    }
+  },
+  "output": {
+    "stream": "test",
+    "token": "FTWe9sfDz6DyZA8xxtAIGwRUMOMX6mgL",
+    "userId": "user-id",
+    "session": "anonymous-id",
+    "event": "my-event",
+    "timestamp": 1388534400000,
+    "eventData": {
+      "property": true,
+      "array": "1,2"
+    },
+    "userData": {
+      "trait": true
+    }
+  }
+}

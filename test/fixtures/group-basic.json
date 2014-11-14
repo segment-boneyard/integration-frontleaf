@@ -1,0 +1,23 @@
+{
+  "input": {
+    "type": "group",
+    "userId": "user-id",
+    "groupId": "group-id",
+    "timestamp": "2014",
+    "traits": {
+      "name": "segment",
+      "site": "https://segment.io"
+    }
+  },
+  "output": {
+    "userId": "user-id",
+    "accountId": "group-id",
+    "accountName": "segment",
+    "stream": "test",
+    "token": "FTWe9sfDz6DyZA8xxtAIGwRUMOMX6mgL",
+    "timestamp": 1388534400000,
+    "accountData": {
+      "site": "https://segment.io"
+    }
+  }
+}
