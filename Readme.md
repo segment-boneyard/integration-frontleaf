@@ -1,8 +1,8 @@
-[![Build Status](https://circleci.com/gh/segmentio/integration-frontleaf.png)](https://circleci.com/gh/segmentio/integration-frontleaf)
+[![Build Status](https://circleci.com/gh/segmentio/integration-frontleaf/tree/master.png?style=badge)](https://circleci.com/gh/segmentio/integration-frontleaf/tree/master)
 
-# Frontleaf server-side integration.
+# integration-frontleaf
 
-Write me...
+Frontleaf server-side integration for Segment.
 
 
 ## License
