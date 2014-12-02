@@ -29,8 +29,7 @@ describe('Frontleaf', function(){
       .ensure('settings.stream')
       .ensure('settings.token')
       .ensure('message.userId')
-      .channels(['server'])
-      .retries(2);
+      .channels(['server']);
   });
 
   describe('.validate()', function(){
