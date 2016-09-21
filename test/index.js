@@ -97,7 +97,7 @@ describe('Frontleaf', function(){
       test
         .set({ token: 'tok' })
         .track({})
-        .error('cannot POST /api/track/event (400)', done);
+        .error('Bad Request', done);
     });
   });
 
@@ -124,7 +124,7 @@ describe('Frontleaf', function(){
       test
         .set({ token: 'tok' })
         .group({})
-        .error('cannot POST /api/track/identify (400)', done);
+        .error('Bad Request', done);
     });
   });
 
@@ -150,7 +150,7 @@ describe('Frontleaf', function(){
       test
         .set({ token: 'tok' })
         .identify({})
-        .error('cannot POST /api/track/identify (400)', done);
+        .error('Bad Request', done);
     });
   });
 
