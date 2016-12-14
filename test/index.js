@@ -1,18 +1,16 @@
+'use strict';
 
 var Test = require('segmentio-integration-tester');
 var helpers = require('./helpers');
-var facade = require('segmentio-facade');
-var should = require('should');
-var assert = require('assert');
 var Frontleaf = require('..');
 
-describe('Frontleaf', function(){
+describe('Frontleaf', function() {
   var frontleaf;
   var settings;
   var test;
   var payload;
 
-  beforeEach(function(){
+  beforeEach(function() {
     settings = {
       token: 'FTWe9sfDz6DyZA8xxtAIGwRUMOMX6mgL',
       stream: 'test'
@@ -22,7 +20,7 @@ describe('Frontleaf', function(){
     payload = {};
   });
 
-  it('should have the correct settings', function(){
+  it('should have the correct settings', function() {
     test
       .name('Frontleaf')
       .endpoint('https://api.frontleaf.com/api/track')
@@ -32,50 +30,50 @@ describe('Frontleaf', function(){
       .channels(['server']);
   });
 
-  describe('.validate()', function(){
+  describe('.validate()', function() {
     var msg;
 
-    beforeEach(function(){
+    beforeEach(function() {
       msg = { userId: 'user-id' };
     });
 
-    it('should be invalid if token is missing', function(){
+    it('should be invalid if token is missing', function() {
       delete settings.token;
       test.invalid(msg, settings);
     });
 
-    it('should be invalid if stream is missing', function(){
+    it('should be invalid if stream is missing', function() {
       delete settings.stream;
       test.invalid(msg, settings);
     });
 
-    it('should be valid when stream and token are given', function(){
+    it('should be valid when stream and token are given', function() {
       test.valid(msg, settings);
     });
   });
 
-  describe('mapper', function(){
-    describe('identify', function(){
-      it('should map basic identify', function(){
+  describe('mapper', function() {
+    describe('identify', function() {
+      it('should map basic identify', function() {
         test.maps('identify-basic');
       });
     });
 
-    describe('track', function(){
-      it('should map basic track', function(){
+    describe('track', function() {
+      it('should map basic track', function() {
         test.maps('track-basic');
       });
     });
 
-    describe('group', function(){
-      it('should map basic group', function(){
+    describe('group', function() {
+      it('should map basic group', function() {
         test.maps('group-basic');
       });
     });
   });
 
-  describe('.track()', function(){
-    it('should be able to track correctly', function (done) {
+  describe('.track()', function() {
+    it('should be able to track correctly', function(done) {
       var msg = helpers.track();
 
       payload.token = settings.token;
@@ -93,7 +91,7 @@ describe('Frontleaf', function(){
         .expects(200, done);
     });
 
-    it('should error on invalid creds', function(done){
+    it('should error on invalid creds', function(done) {
       test
         .set({ token: 'tok' })
         .track({})
@@ -101,8 +99,8 @@ describe('Frontleaf', function(){
     });
   });
 
-  describe('.group()', function(){
-    it('should be able to group properly', function (done) {
+  describe('.group()', function() {
+    it('should be able to group properly', function(done) {
       var msg = helpers.group();
 
       payload.token = settings.token;
@@ -120,7 +118,7 @@ describe('Frontleaf', function(){
         .expects(200, done);
     });
 
-    it('should error on invalid creds', function(done){
+    it('should error on invalid creds', function(done) {
       test
         .set({ token: 'tok' })
         .group({})
@@ -128,8 +126,8 @@ describe('Frontleaf', function(){
     });
   });
 
-  describe('.identify()', function(){
-    it('should be able to identify correctly', function (done) {
+  describe('.identify()', function() {
+    it('should be able to identify correctly', function(done) {
       var msg = helpers.identify();
 
       payload.token = settings.token;
@@ -146,7 +144,7 @@ describe('Frontleaf', function(){
         .expects(200, done);
     });
 
-    it('should error on invalid creds', function(done){
+    it('should error on invalid creds', function(done) {
       test
         .set({ token: 'tok' })
         .identify({})
@@ -154,11 +152,11 @@ describe('Frontleaf', function(){
     });
   });
 
-  describe('._clean()', function(){
-    it('should properly clean and flatten the source data', function (done) {
+  describe('._clean()', function() {
+    it('should properly clean and flatten the source data', function(done) {
       var result = frontleaf.mapper._clean({
         id : 123456,
-        name : "Delete Me",
+        name : 'Delete Me',
         layers  : ['chocolate', 'strawberry', 'fudge'],
         revenue : 19.95,
         numLayers : 10,
@@ -171,7 +169,7 @@ describe('Frontleaf', function(){
           zip  : 94107,
           city : 'San Francisco'
         }
-      })
+      });
 
       result.should.not.have.property('id');
       result.should.not.have.property('name');
